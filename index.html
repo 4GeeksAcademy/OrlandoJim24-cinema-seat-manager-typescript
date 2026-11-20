@@ -3,24 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello World with Typescript</title>
+    <title>Cinema Seat Manager</title>
   </head>
-  <body class="min-h-screen bg-slate-100 text-slate-900">
-    <main class="mx-auto flex min-h-screen max-w-2xl flex-col items-center justify-center gap-6 p-6">
-      <h1 class="text-4xl font-bold tracking-tight">Hello World with Typescript</h1>
+  <body class="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 text-slate-100">
+    <main class="mx-auto flex min-h-screen flex-col items-center justify-center gap-8 p-6" style="max-width: 800px;">
+      <!-- Header -->
+      <div class="text-center">
+        <h1 class="text-5xl font-bold tracking-tight text-white mb-2">🎬 Cinema Seat Manager</h1>
+        <p class="text-lg text-slate-300">Select available seats to reserve your spot</p>
+      </div>
 
-      <section class="w-full max-w-md overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-        <img
-          src="/rigo-baby.jpg"
-          alt="Hello Rigo"
-          class="h-64 w-full bg-slate-50 object-contain p-2"
-        />
-        <div class="p-5">
-          <h2 class="text-xl font-semibold text-slate-900">Hello Rigo</h2>
-          <p id="app" class="mt-2 text-sm text-slate-600"></p>
+      <!-- Stats Section -->
+      <section class="w-full grid grid-cols-3 gap-4">
+        <div class="rounded-lg bg-green-500 p-6 text-center shadow-lg">
+          <div class="text-sm font-semibold text-green-900">Available</div>
+          <div class="text-4xl font-bold text-white" id="available-count">80</div>
+        </div>
+        <div class="rounded-lg bg-red-500 p-6 text-center shadow-lg">
+          <div class="text-sm font-semibold text-red-900">Occupied</div>
+          <div class="text-4xl font-bold text-white" id="occupied-count">0</div>
+        </div>
+        <div class="rounded-lg bg-blue-500 p-6 text-center shadow-lg">
+          <div class="text-sm font-semibold text-blue-900">Total</div>
+          <div class="text-4xl font-bold text-white" id="total-count">80</div>
         </div>
       </section>
+
+      <!-- Message Display -->
+      <div id="message" class="text-center min-h-6"></div>
+
+      <!-- Seating Chart -->
+      <section class="w-full overflow-auto rounded-2xl border border-slate-700 bg-slate-800 p-8 shadow-2xl">
+        <h2 class="mb-6 text-center text-2xl font-bold">Seating Chart</h2>
+        <div id="seating-chart" class="inline-block"></div>
+        <div class="mt-8 flex justify-center gap-4 text-sm text-slate-400">
+          <div class="flex items-center gap-2">
+            <div class="h-4 w-4 rounded bg-green-500"></div>
+            <span>Available (L)</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="h-4 w-4 rounded bg-red-500"></div>
+            <span>Occupied (X)</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="h-4 w-4 rounded bg-blue-500"></div>
+            <span>Highlighted</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Action Buttons -->
+      <div class="flex w-full flex-col gap-4 sm:flex-row sm:justify-center">
+        <button
+          id="find-adjacent-btn"
+          class="rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700 active:bg-blue-800"
+        >
+          🔍 Find Adjacent Seats
+        </button>
+        <button
+          id="reset-btn"
+          class="rounded-lg bg-slate-700 px-8 py-3 font-semibold text-white transition-colors hover:bg-slate-600 active:bg-slate-800"
+        >
+          🔄 Reset Cinema
+        </button>
+      </div>
+
+      <!-- Footer -->
+      <footer class="mt-8 text-center text-sm text-slate-400">
+        <p>4Geeks Academy | Cinema Seat Manager Project</p>
+      </footer>
     </main>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
+
